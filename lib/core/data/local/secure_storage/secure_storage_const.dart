@@ -1,2 +1,2 @@
-const String accessTokenKay = "accessToken";
-const String refreshTokenKay = "refreshToken";
+const String accessTokenKey = "accessToken";
+const String refreshTokenKey = "refreshToken";
