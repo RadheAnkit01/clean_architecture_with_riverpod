@@ -14,7 +14,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$SignUpModel {
 
- String get firstName; String? get lastName; Gender get gender; String get fullPhoneNumber; bool get isSignUpSuccess;
+ String get firstName; String? get lastName; String get gender; String get fullPhoneNumber; bool get isSignUpSuccess;
 /// Create a copy of SignUpModel
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -45,7 +45,7 @@ abstract mixin class $SignUpModelCopyWith<$Res>  {
   factory $SignUpModelCopyWith(SignUpModel value, $Res Function(SignUpModel) _then) = _$SignUpModelCopyWithImpl;
 @useResult
 $Res call({
- String firstName, String? lastName, Gender gender, String fullPhoneNumber, bool isSignUpSuccess
+ String firstName, String? lastName, String gender, String fullPhoneNumber, bool isSignUpSuccess
 });
 
 
@@ -67,7 +67,7 @@ class _$SignUpModelCopyWithImpl<$Res>
 firstName: null == firstName ? _self.firstName : firstName // ignore: cast_nullable_to_non_nullable
 as String,lastName: freezed == lastName ? _self.lastName : lastName // ignore: cast_nullable_to_non_nullable
 as String?,gender: null == gender ? _self.gender : gender // ignore: cast_nullable_to_non_nullable
-as Gender,fullPhoneNumber: null == fullPhoneNumber ? _self.fullPhoneNumber : fullPhoneNumber // ignore: cast_nullable_to_non_nullable
+as String,fullPhoneNumber: null == fullPhoneNumber ? _self.fullPhoneNumber : fullPhoneNumber // ignore: cast_nullable_to_non_nullable
 as String,isSignUpSuccess: null == isSignUpSuccess ? _self.isSignUpSuccess : isSignUpSuccess // ignore: cast_nullable_to_non_nullable
 as bool,
   ));
@@ -154,7 +154,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String firstName,  String? lastName,  Gender gender,  String fullPhoneNumber,  bool isSignUpSuccess)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String firstName,  String? lastName,  String gender,  String fullPhoneNumber,  bool isSignUpSuccess)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _SignUpModel() when $default != null:
 return $default(_that.firstName,_that.lastName,_that.gender,_that.fullPhoneNumber,_that.isSignUpSuccess);case _:
@@ -175,7 +175,7 @@ return $default(_that.firstName,_that.lastName,_that.gender,_that.fullPhoneNumbe
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String firstName,  String? lastName,  Gender gender,  String fullPhoneNumber,  bool isSignUpSuccess)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String firstName,  String? lastName,  String gender,  String fullPhoneNumber,  bool isSignUpSuccess)  $default,) {final _that = this;
 switch (_that) {
 case _SignUpModel():
 return $default(_that.firstName,_that.lastName,_that.gender,_that.fullPhoneNumber,_that.isSignUpSuccess);case _:
@@ -195,7 +195,7 @@ return $default(_that.firstName,_that.lastName,_that.gender,_that.fullPhoneNumbe
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String firstName,  String? lastName,  Gender gender,  String fullPhoneNumber,  bool isSignUpSuccess)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String firstName,  String? lastName,  String gender,  String fullPhoneNumber,  bool isSignUpSuccess)?  $default,) {final _that = this;
 switch (_that) {
 case _SignUpModel() when $default != null:
 return $default(_that.firstName,_that.lastName,_that.gender,_that.fullPhoneNumber,_that.isSignUpSuccess);case _:
@@ -215,7 +215,7 @@ class _SignUpModel implements SignUpModel {
 
 @override final  String firstName;
 @override final  String? lastName;
-@override final  Gender gender;
+@override final  String gender;
 @override final  String fullPhoneNumber;
 @override final  bool isSignUpSuccess;
 
@@ -249,7 +249,7 @@ abstract mixin class _$SignUpModelCopyWith<$Res> implements $SignUpModelCopyWith
   factory _$SignUpModelCopyWith(_SignUpModel value, $Res Function(_SignUpModel) _then) = __$SignUpModelCopyWithImpl;
 @override @useResult
 $Res call({
- String firstName, String? lastName, Gender gender, String fullPhoneNumber, bool isSignUpSuccess
+ String firstName, String? lastName, String gender, String fullPhoneNumber, bool isSignUpSuccess
 });
 
 
@@ -271,7 +271,7 @@ class __$SignUpModelCopyWithImpl<$Res>
 firstName: null == firstName ? _self.firstName : firstName // ignore: cast_nullable_to_non_nullable
 as String,lastName: freezed == lastName ? _self.lastName : lastName // ignore: cast_nullable_to_non_nullable
 as String?,gender: null == gender ? _self.gender : gender // ignore: cast_nullable_to_non_nullable
-as Gender,fullPhoneNumber: null == fullPhoneNumber ? _self.fullPhoneNumber : fullPhoneNumber // ignore: cast_nullable_to_non_nullable
+as String,fullPhoneNumber: null == fullPhoneNumber ? _self.fullPhoneNumber : fullPhoneNumber // ignore: cast_nullable_to_non_nullable
 as String,isSignUpSuccess: null == isSignUpSuccess ? _self.isSignUpSuccess : isSignUpSuccess // ignore: cast_nullable_to_non_nullable
 as bool,
   ));
