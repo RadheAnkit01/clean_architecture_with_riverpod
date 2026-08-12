@@ -16,7 +16,6 @@ _SignUpRequest _$SignUpRequestFromJson(Map<String, dynamic> json) =>
       gender: $enumDecode(_$GenderEnumMap, json['gender']),
       password: json['password'] as String,
       acceptTerms: json['acceptTerms'] as bool,
-      country: $enumDecode(_$CountryEnumMap, json['country']),
     );
 
 Map<String, dynamic> _$SignUpRequestToJson(_SignUpRequest instance) =>
@@ -29,18 +28,10 @@ Map<String, dynamic> _$SignUpRequestToJson(_SignUpRequest instance) =>
       'gender': _$GenderEnumMap[instance.gender]!,
       'password': instance.password,
       'acceptTerms': instance.acceptTerms,
-      'country': _$CountryEnumMap[instance.country]!,
     };
 
 const _$GenderEnumMap = {
   Gender.male: 'male',
   Gender.female: 'female',
   Gender.other: 'other',
-};
-
-const _$CountryEnumMap = {
-  Country.india: 'india',
-  Country.usa: 'usa',
-  Country.uk: 'uk',
-  Country.canada: 'canada',
 };

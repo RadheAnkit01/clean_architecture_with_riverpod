@@ -7,7 +7,7 @@ import 'package:clean_architecture_with_riverpod/features/signup/domain/mapper/i
 import 'package:clean_architecture_with_riverpod/features/signup/domain/model/sign_up_model.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-final isgnUpServiceProvider = Provider<IsignUpService>((ref) {
+final signUpServiceProvider = Provider<IsignUpService>((ref) {
   final signUpRepository = ref.watch(signUpRepositoryProvider);
   return SignUpService(signUpRepository: signUpRepository);
 });

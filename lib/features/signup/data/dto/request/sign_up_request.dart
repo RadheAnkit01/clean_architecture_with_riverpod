@@ -25,8 +25,6 @@ abstract class SignUpRequest with _$SignUpRequest {
     @JsonKey(name: 'password') required String password,
 
     @JsonKey(name: 'acceptTerms') required bool acceptTerms,
-
-    @JsonKey(name: 'country') required Country country,
   }) = _SignUpRequest;
 
   factory SignUpRequest.fromJson(Map<String, dynamic> json) =>
