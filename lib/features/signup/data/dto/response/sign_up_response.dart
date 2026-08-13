@@ -7,7 +7,7 @@ part 'sign_up_response.g.dart';
 abstract class SignUpResponse with _$SignUpResponse {
   const factory SignUpResponse({
     @JsonKey(name: "firstName") required String firstName,
-    @JsonKey(name: "lastName") required String lastName,
+    @JsonKey(name: "lastName") String? lastName,
     @JsonKey(name: "gender") required String gender,
     @JsonKey(name: "fullPhoneNumber") required String fullPhoneNumber,
     @JsonKey(name: "countryName") required String countryName,

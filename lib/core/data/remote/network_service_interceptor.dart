@@ -1,4 +1,5 @@
 import 'package:clean_architecture_with_riverpod/common/http_status/status_code.dart';
+import 'package:clean_architecture_with_riverpod/core/data/remote/endpoint.dart';
 import 'package:clean_architecture_with_riverpod/core/data/remote/token/itoken_service.dart';
 import 'package:clean_architecture_with_riverpod/core/data/remote/token/token_service.dart';
 import 'package:dio/dio.dart';
@@ -24,7 +25,9 @@ final class NetworkServiceInterceptor extends Interceptor {
 
     options.headers['Content-Type'] = 'application/json';
     options.headers['Accept'] = 'application/json';
-    options.headers['Authorization'] = 'Bearer $accessToken';
+    if (accessToken != null) {
+      options.headers['Authorization'] = 'Bearer $accessToken';
+    }
 
     super.onRequest(options, handler);
   }
@@ -32,7 +35,10 @@ final class NetworkServiceInterceptor extends Interceptor {
   @override
   void onError(DioException err, ErrorInterceptorHandler handler) async {
     //Handle Unauthorize error
-    if (err.response?.statusCode == StatusCode.invalidAccessToken) {
+    if (err.response?.statusCode == StatusCode.invalidAccessToken &&
+        err.requestOptions.path != signUpEndpoint &&
+        err.requestOptions.path != loginEndpoint &&
+        err.requestOptions.path != refreshTokenEndpoint) {
       final token = await _itokenService.getRefreshToken();
 
       try {

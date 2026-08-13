@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$SignUpRequest {
 
-@JsonKey(name: 'firstName') String get firstName;@JsonKey(name: 'lastName') String? get lastName;@JsonKey(name: 'countryCode') String get countryCode;@JsonKey(name: 'phoneNumber') String get phoneNumber;@JsonKey(name: 'email') String? get email;@JsonKey(name: 'gender') Gender get gender;@JsonKey(name: 'password') String get password;@JsonKey(name: 'acceptTerms') bool get acceptTerms;
+@JsonKey(name: 'firstName') String get firstName;@JsonKey(name: 'lastName') String? get lastName;@CountryCodeConverter()@JsonKey(name: 'countryCode') CountryCode get countryCode;@JsonKey(name: 'phoneNumber') String get phoneNumber;@JsonKey(name: 'email') String? get email;@GenderConverter()@JsonKey(name: 'gender') Gender get gender;@JsonKey(name: 'password') String get password;@JsonKey(name: 'acceptTerms') bool get acceptTerms;
 /// Create a copy of SignUpRequest
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -48,7 +48,7 @@ abstract mixin class $SignUpRequestCopyWith<$Res>  {
   factory $SignUpRequestCopyWith(SignUpRequest value, $Res Function(SignUpRequest) _then) = _$SignUpRequestCopyWithImpl;
 @useResult
 $Res call({
-@JsonKey(name: 'firstName') String firstName,@JsonKey(name: 'lastName') String? lastName,@JsonKey(name: 'countryCode') String countryCode,@JsonKey(name: 'phoneNumber') String phoneNumber,@JsonKey(name: 'email') String? email,@JsonKey(name: 'gender') Gender gender,@JsonKey(name: 'password') String password,@JsonKey(name: 'acceptTerms') bool acceptTerms
+@JsonKey(name: 'firstName') String firstName,@JsonKey(name: 'lastName') String? lastName,@CountryCodeConverter()@JsonKey(name: 'countryCode') CountryCode countryCode,@JsonKey(name: 'phoneNumber') String phoneNumber,@JsonKey(name: 'email') String? email,@GenderConverter()@JsonKey(name: 'gender') Gender gender,@JsonKey(name: 'password') String password,@JsonKey(name: 'acceptTerms') bool acceptTerms
 });
 
 
@@ -70,7 +70,7 @@ class _$SignUpRequestCopyWithImpl<$Res>
 firstName: null == firstName ? _self.firstName : firstName // ignore: cast_nullable_to_non_nullable
 as String,lastName: freezed == lastName ? _self.lastName : lastName // ignore: cast_nullable_to_non_nullable
 as String?,countryCode: null == countryCode ? _self.countryCode : countryCode // ignore: cast_nullable_to_non_nullable
-as String,phoneNumber: null == phoneNumber ? _self.phoneNumber : phoneNumber // ignore: cast_nullable_to_non_nullable
+as CountryCode,phoneNumber: null == phoneNumber ? _self.phoneNumber : phoneNumber // ignore: cast_nullable_to_non_nullable
 as String,email: freezed == email ? _self.email : email // ignore: cast_nullable_to_non_nullable
 as String?,gender: null == gender ? _self.gender : gender // ignore: cast_nullable_to_non_nullable
 as Gender,password: null == password ? _self.password : password // ignore: cast_nullable_to_non_nullable
@@ -160,7 +160,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function(@JsonKey(name: 'firstName')  String firstName, @JsonKey(name: 'lastName')  String? lastName, @JsonKey(name: 'countryCode')  String countryCode, @JsonKey(name: 'phoneNumber')  String phoneNumber, @JsonKey(name: 'email')  String? email, @JsonKey(name: 'gender')  Gender gender, @JsonKey(name: 'password')  String password, @JsonKey(name: 'acceptTerms')  bool acceptTerms)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function(@JsonKey(name: 'firstName')  String firstName, @JsonKey(name: 'lastName')  String? lastName, @CountryCodeConverter()@JsonKey(name: 'countryCode')  CountryCode countryCode, @JsonKey(name: 'phoneNumber')  String phoneNumber, @JsonKey(name: 'email')  String? email, @GenderConverter()@JsonKey(name: 'gender')  Gender gender, @JsonKey(name: 'password')  String password, @JsonKey(name: 'acceptTerms')  bool acceptTerms)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _SignUpRequest() when $default != null:
 return $default(_that.firstName,_that.lastName,_that.countryCode,_that.phoneNumber,_that.email,_that.gender,_that.password,_that.acceptTerms);case _:
@@ -181,7 +181,7 @@ return $default(_that.firstName,_that.lastName,_that.countryCode,_that.phoneNumb
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function(@JsonKey(name: 'firstName')  String firstName, @JsonKey(name: 'lastName')  String? lastName, @JsonKey(name: 'countryCode')  String countryCode, @JsonKey(name: 'phoneNumber')  String phoneNumber, @JsonKey(name: 'email')  String? email, @JsonKey(name: 'gender')  Gender gender, @JsonKey(name: 'password')  String password, @JsonKey(name: 'acceptTerms')  bool acceptTerms)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function(@JsonKey(name: 'firstName')  String firstName, @JsonKey(name: 'lastName')  String? lastName, @CountryCodeConverter()@JsonKey(name: 'countryCode')  CountryCode countryCode, @JsonKey(name: 'phoneNumber')  String phoneNumber, @JsonKey(name: 'email')  String? email, @GenderConverter()@JsonKey(name: 'gender')  Gender gender, @JsonKey(name: 'password')  String password, @JsonKey(name: 'acceptTerms')  bool acceptTerms)  $default,) {final _that = this;
 switch (_that) {
 case _SignUpRequest():
 return $default(_that.firstName,_that.lastName,_that.countryCode,_that.phoneNumber,_that.email,_that.gender,_that.password,_that.acceptTerms);case _:
@@ -201,7 +201,7 @@ return $default(_that.firstName,_that.lastName,_that.countryCode,_that.phoneNumb
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function(@JsonKey(name: 'firstName')  String firstName, @JsonKey(name: 'lastName')  String? lastName, @JsonKey(name: 'countryCode')  String countryCode, @JsonKey(name: 'phoneNumber')  String phoneNumber, @JsonKey(name: 'email')  String? email, @JsonKey(name: 'gender')  Gender gender, @JsonKey(name: 'password')  String password, @JsonKey(name: 'acceptTerms')  bool acceptTerms)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function(@JsonKey(name: 'firstName')  String firstName, @JsonKey(name: 'lastName')  String? lastName, @CountryCodeConverter()@JsonKey(name: 'countryCode')  CountryCode countryCode, @JsonKey(name: 'phoneNumber')  String phoneNumber, @JsonKey(name: 'email')  String? email, @GenderConverter()@JsonKey(name: 'gender')  Gender gender, @JsonKey(name: 'password')  String password, @JsonKey(name: 'acceptTerms')  bool acceptTerms)?  $default,) {final _that = this;
 switch (_that) {
 case _SignUpRequest() when $default != null:
 return $default(_that.firstName,_that.lastName,_that.countryCode,_that.phoneNumber,_that.email,_that.gender,_that.password,_that.acceptTerms);case _:
@@ -216,15 +216,15 @@ return $default(_that.firstName,_that.lastName,_that.countryCode,_that.phoneNumb
 @JsonSerializable()
 
 class _SignUpRequest implements SignUpRequest {
-  const _SignUpRequest({@JsonKey(name: 'firstName') required this.firstName, @JsonKey(name: 'lastName') this.lastName, @JsonKey(name: 'countryCode') required this.countryCode, @JsonKey(name: 'phoneNumber') required this.phoneNumber, @JsonKey(name: 'email') this.email, @JsonKey(name: 'gender') required this.gender, @JsonKey(name: 'password') required this.password, @JsonKey(name: 'acceptTerms') required this.acceptTerms});
+  const _SignUpRequest({@JsonKey(name: 'firstName') required this.firstName, @JsonKey(name: 'lastName') this.lastName, @CountryCodeConverter()@JsonKey(name: 'countryCode') required this.countryCode, @JsonKey(name: 'phoneNumber') required this.phoneNumber, @JsonKey(name: 'email') this.email, @GenderConverter()@JsonKey(name: 'gender') required this.gender, @JsonKey(name: 'password') required this.password, @JsonKey(name: 'acceptTerms') required this.acceptTerms});
   factory _SignUpRequest.fromJson(Map<String, dynamic> json) => _$SignUpRequestFromJson(json);
 
 @override@JsonKey(name: 'firstName') final  String firstName;
 @override@JsonKey(name: 'lastName') final  String? lastName;
-@override@JsonKey(name: 'countryCode') final  String countryCode;
+@override@CountryCodeConverter()@JsonKey(name: 'countryCode') final  CountryCode countryCode;
 @override@JsonKey(name: 'phoneNumber') final  String phoneNumber;
 @override@JsonKey(name: 'email') final  String? email;
-@override@JsonKey(name: 'gender') final  Gender gender;
+@override@GenderConverter()@JsonKey(name: 'gender') final  Gender gender;
 @override@JsonKey(name: 'password') final  String password;
 @override@JsonKey(name: 'acceptTerms') final  bool acceptTerms;
 
@@ -261,7 +261,7 @@ abstract mixin class _$SignUpRequestCopyWith<$Res> implements $SignUpRequestCopy
   factory _$SignUpRequestCopyWith(_SignUpRequest value, $Res Function(_SignUpRequest) _then) = __$SignUpRequestCopyWithImpl;
 @override @useResult
 $Res call({
-@JsonKey(name: 'firstName') String firstName,@JsonKey(name: 'lastName') String? lastName,@JsonKey(name: 'countryCode') String countryCode,@JsonKey(name: 'phoneNumber') String phoneNumber,@JsonKey(name: 'email') String? email,@JsonKey(name: 'gender') Gender gender,@JsonKey(name: 'password') String password,@JsonKey(name: 'acceptTerms') bool acceptTerms
+@JsonKey(name: 'firstName') String firstName,@JsonKey(name: 'lastName') String? lastName,@CountryCodeConverter()@JsonKey(name: 'countryCode') CountryCode countryCode,@JsonKey(name: 'phoneNumber') String phoneNumber,@JsonKey(name: 'email') String? email,@GenderConverter()@JsonKey(name: 'gender') Gender gender,@JsonKey(name: 'password') String password,@JsonKey(name: 'acceptTerms') bool acceptTerms
 });
 
 
@@ -283,7 +283,7 @@ class __$SignUpRequestCopyWithImpl<$Res>
 firstName: null == firstName ? _self.firstName : firstName // ignore: cast_nullable_to_non_nullable
 as String,lastName: freezed == lastName ? _self.lastName : lastName // ignore: cast_nullable_to_non_nullable
 as String?,countryCode: null == countryCode ? _self.countryCode : countryCode // ignore: cast_nullable_to_non_nullable
-as String,phoneNumber: null == phoneNumber ? _self.phoneNumber : phoneNumber // ignore: cast_nullable_to_non_nullable
+as CountryCode,phoneNumber: null == phoneNumber ? _self.phoneNumber : phoneNumber // ignore: cast_nullable_to_non_nullable
 as String,email: freezed == email ? _self.email : email // ignore: cast_nullable_to_non_nullable
 as String?,gender: null == gender ? _self.gender : gender // ignore: cast_nullable_to_non_nullable
 as Gender,password: null == password ? _self.password : password // ignore: cast_nullable_to_non_nullable

@@ -10,10 +10,12 @@ _SignUpRequest _$SignUpRequestFromJson(Map<String, dynamic> json) =>
     _SignUpRequest(
       firstName: json['firstName'] as String,
       lastName: json['lastName'] as String?,
-      countryCode: json['countryCode'] as String,
+      countryCode: const CountryCodeConverter().fromJson(
+        json['countryCode'] as String,
+      ),
       phoneNumber: json['phoneNumber'] as String,
       email: json['email'] as String?,
-      gender: $enumDecode(_$GenderEnumMap, json['gender']),
+      gender: const GenderConverter().fromJson(json['gender'] as String),
       password: json['password'] as String,
       acceptTerms: json['acceptTerms'] as bool,
     );
@@ -22,16 +24,10 @@ Map<String, dynamic> _$SignUpRequestToJson(_SignUpRequest instance) =>
     <String, dynamic>{
       'firstName': instance.firstName,
       'lastName': instance.lastName,
-      'countryCode': instance.countryCode,
+      'countryCode': const CountryCodeConverter().toJson(instance.countryCode),
       'phoneNumber': instance.phoneNumber,
       'email': instance.email,
-      'gender': _$GenderEnumMap[instance.gender]!,
+      'gender': const GenderConverter().toJson(instance.gender),
       'password': instance.password,
       'acceptTerms': instance.acceptTerms,
     };
-
-const _$GenderEnumMap = {
-  Gender.male: 'male',
-  Gender.female: 'female',
-  Gender.other: 'other',
-};

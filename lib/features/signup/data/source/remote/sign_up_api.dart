@@ -1,3 +1,4 @@
+import 'package:clean_architecture_with_riverpod/core/data/remote/endpoint.dart';
 import 'package:clean_architecture_with_riverpod/core/data/remote/network_service.dart';
 import 'package:clean_architecture_with_riverpod/features/signup/data/dto/request/sign_up_request.dart';
 import 'package:clean_architecture_with_riverpod/features/signup/data/dto/response/sign_up_response.dart';
@@ -16,6 +17,6 @@ final signUpApiProvider = Provider<SignUpApi>((ref) {
 abstract class SignUpApi {
   factory SignUpApi(Dio dio) => _SignUpApi(dio);
 
-  @POST('/api/v1/auth/register')
+  @POST(signUpEndpoint)
   Future<SignUpResponse> signUp(@Body() SignUpRequest signUpRequest);
 }

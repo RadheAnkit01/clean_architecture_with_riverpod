@@ -21,7 +21,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
             IconButton.filled(
               onPressed: () {
                 // context.go("/signup");
-                context.push("/signup");
+                context.go("/signup");
               },
               icon: Icon(Icons.login_sharp),
             ),

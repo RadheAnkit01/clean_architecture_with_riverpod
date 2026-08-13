@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$SignUpResponse {
 
-@JsonKey(name: "firstName") String get firstName;@JsonKey(name: "lastName") String get lastName;@JsonKey(name: "gender") String get gender;@JsonKey(name: "fullPhoneNumber") String get fullPhoneNumber;@JsonKey(name: "countryName") String get countryName;
+@JsonKey(name: "firstName") String get firstName;@JsonKey(name: "lastName") String? get lastName;@JsonKey(name: "gender") String get gender;@JsonKey(name: "fullPhoneNumber") String get fullPhoneNumber;@JsonKey(name: "countryName") String get countryName;
 /// Create a copy of SignUpResponse
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -48,7 +48,7 @@ abstract mixin class $SignUpResponseCopyWith<$Res>  {
   factory $SignUpResponseCopyWith(SignUpResponse value, $Res Function(SignUpResponse) _then) = _$SignUpResponseCopyWithImpl;
 @useResult
 $Res call({
-@JsonKey(name: "firstName") String firstName,@JsonKey(name: "lastName") String lastName,@JsonKey(name: "gender") String gender,@JsonKey(name: "fullPhoneNumber") String fullPhoneNumber,@JsonKey(name: "countryName") String countryName
+@JsonKey(name: "firstName") String firstName,@JsonKey(name: "lastName") String? lastName,@JsonKey(name: "gender") String gender,@JsonKey(name: "fullPhoneNumber") String fullPhoneNumber,@JsonKey(name: "countryName") String countryName
 });
 
 
@@ -65,11 +65,11 @@ class _$SignUpResponseCopyWithImpl<$Res>
 
 /// Create a copy of SignUpResponse
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? firstName = null,Object? lastName = null,Object? gender = null,Object? fullPhoneNumber = null,Object? countryName = null,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? firstName = null,Object? lastName = freezed,Object? gender = null,Object? fullPhoneNumber = null,Object? countryName = null,}) {
   return _then(_self.copyWith(
 firstName: null == firstName ? _self.firstName : firstName // ignore: cast_nullable_to_non_nullable
-as String,lastName: null == lastName ? _self.lastName : lastName // ignore: cast_nullable_to_non_nullable
-as String,gender: null == gender ? _self.gender : gender // ignore: cast_nullable_to_non_nullable
+as String,lastName: freezed == lastName ? _self.lastName : lastName // ignore: cast_nullable_to_non_nullable
+as String?,gender: null == gender ? _self.gender : gender // ignore: cast_nullable_to_non_nullable
 as String,fullPhoneNumber: null == fullPhoneNumber ? _self.fullPhoneNumber : fullPhoneNumber // ignore: cast_nullable_to_non_nullable
 as String,countryName: null == countryName ? _self.countryName : countryName // ignore: cast_nullable_to_non_nullable
 as String,
@@ -157,7 +157,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function(@JsonKey(name: "firstName")  String firstName, @JsonKey(name: "lastName")  String lastName, @JsonKey(name: "gender")  String gender, @JsonKey(name: "fullPhoneNumber")  String fullPhoneNumber, @JsonKey(name: "countryName")  String countryName)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function(@JsonKey(name: "firstName")  String firstName, @JsonKey(name: "lastName")  String? lastName, @JsonKey(name: "gender")  String gender, @JsonKey(name: "fullPhoneNumber")  String fullPhoneNumber, @JsonKey(name: "countryName")  String countryName)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _SignUpResponse() when $default != null:
 return $default(_that.firstName,_that.lastName,_that.gender,_that.fullPhoneNumber,_that.countryName);case _:
@@ -178,7 +178,7 @@ return $default(_that.firstName,_that.lastName,_that.gender,_that.fullPhoneNumbe
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function(@JsonKey(name: "firstName")  String firstName, @JsonKey(name: "lastName")  String lastName, @JsonKey(name: "gender")  String gender, @JsonKey(name: "fullPhoneNumber")  String fullPhoneNumber, @JsonKey(name: "countryName")  String countryName)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function(@JsonKey(name: "firstName")  String firstName, @JsonKey(name: "lastName")  String? lastName, @JsonKey(name: "gender")  String gender, @JsonKey(name: "fullPhoneNumber")  String fullPhoneNumber, @JsonKey(name: "countryName")  String countryName)  $default,) {final _that = this;
 switch (_that) {
 case _SignUpResponse():
 return $default(_that.firstName,_that.lastName,_that.gender,_that.fullPhoneNumber,_that.countryName);case _:
@@ -198,7 +198,7 @@ return $default(_that.firstName,_that.lastName,_that.gender,_that.fullPhoneNumbe
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function(@JsonKey(name: "firstName")  String firstName, @JsonKey(name: "lastName")  String lastName, @JsonKey(name: "gender")  String gender, @JsonKey(name: "fullPhoneNumber")  String fullPhoneNumber, @JsonKey(name: "countryName")  String countryName)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function(@JsonKey(name: "firstName")  String firstName, @JsonKey(name: "lastName")  String? lastName, @JsonKey(name: "gender")  String gender, @JsonKey(name: "fullPhoneNumber")  String fullPhoneNumber, @JsonKey(name: "countryName")  String countryName)?  $default,) {final _that = this;
 switch (_that) {
 case _SignUpResponse() when $default != null:
 return $default(_that.firstName,_that.lastName,_that.gender,_that.fullPhoneNumber,_that.countryName);case _:
@@ -213,11 +213,11 @@ return $default(_that.firstName,_that.lastName,_that.gender,_that.fullPhoneNumbe
 @JsonSerializable()
 
 class _SignUpResponse implements SignUpResponse {
-  const _SignUpResponse({@JsonKey(name: "firstName") required this.firstName, @JsonKey(name: "lastName") required this.lastName, @JsonKey(name: "gender") required this.gender, @JsonKey(name: "fullPhoneNumber") required this.fullPhoneNumber, @JsonKey(name: "countryName") required this.countryName});
+  const _SignUpResponse({@JsonKey(name: "firstName") required this.firstName, @JsonKey(name: "lastName") this.lastName, @JsonKey(name: "gender") required this.gender, @JsonKey(name: "fullPhoneNumber") required this.fullPhoneNumber, @JsonKey(name: "countryName") required this.countryName});
   factory _SignUpResponse.fromJson(Map<String, dynamic> json) => _$SignUpResponseFromJson(json);
 
 @override@JsonKey(name: "firstName") final  String firstName;
-@override@JsonKey(name: "lastName") final  String lastName;
+@override@JsonKey(name: "lastName") final  String? lastName;
 @override@JsonKey(name: "gender") final  String gender;
 @override@JsonKey(name: "fullPhoneNumber") final  String fullPhoneNumber;
 @override@JsonKey(name: "countryName") final  String countryName;
@@ -255,7 +255,7 @@ abstract mixin class _$SignUpResponseCopyWith<$Res> implements $SignUpResponseCo
   factory _$SignUpResponseCopyWith(_SignUpResponse value, $Res Function(_SignUpResponse) _then) = __$SignUpResponseCopyWithImpl;
 @override @useResult
 $Res call({
-@JsonKey(name: "firstName") String firstName,@JsonKey(name: "lastName") String lastName,@JsonKey(name: "gender") String gender,@JsonKey(name: "fullPhoneNumber") String fullPhoneNumber,@JsonKey(name: "countryName") String countryName
+@JsonKey(name: "firstName") String firstName,@JsonKey(name: "lastName") String? lastName,@JsonKey(name: "gender") String gender,@JsonKey(name: "fullPhoneNumber") String fullPhoneNumber,@JsonKey(name: "countryName") String countryName
 });
 
 
@@ -272,11 +272,11 @@ class __$SignUpResponseCopyWithImpl<$Res>
 
 /// Create a copy of SignUpResponse
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? firstName = null,Object? lastName = null,Object? gender = null,Object? fullPhoneNumber = null,Object? countryName = null,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? firstName = null,Object? lastName = freezed,Object? gender = null,Object? fullPhoneNumber = null,Object? countryName = null,}) {
   return _then(_SignUpResponse(
 firstName: null == firstName ? _self.firstName : firstName // ignore: cast_nullable_to_non_nullable
-as String,lastName: null == lastName ? _self.lastName : lastName // ignore: cast_nullable_to_non_nullable
-as String,gender: null == gender ? _self.gender : gender // ignore: cast_nullable_to_non_nullable
+as String,lastName: freezed == lastName ? _self.lastName : lastName // ignore: cast_nullable_to_non_nullable
+as String?,gender: null == gender ? _self.gender : gender // ignore: cast_nullable_to_non_nullable
 as String,fullPhoneNumber: null == fullPhoneNumber ? _self.fullPhoneNumber : fullPhoneNumber // ignore: cast_nullable_to_non_nullable
 as String,countryName: null == countryName ? _self.countryName : countryName // ignore: cast_nullable_to_non_nullable
 as String,

@@ -28,18 +28,23 @@ class SignUpController extends Notifier<SignUpState> {
         acceptTerms: state.signUpForm["acceptTerms"],
       );
       final result = await ref.read(signUpServiceProvider).signUp(formData);
-
-      state.copyWith(
+      if (!ref.mounted) return;
+      state = state.copyWith(
         isLoading: false,
         isSignUpSuccess: result.isSignUpSuccess,
         signUpModel: result,
       );
     } catch (e) {
-      state.copyWith(
+      if (!ref.mounted) return;
+      state = state.copyWith(
         isLoading: false,
         isSignUpSuccess: null,
         error: e.toString(),
       );
     }
+  }
+
+  void setFormData(Map<String, dynamic> formData) {
+    state = state.copyWith(signUpForm: formData);
   }
 }

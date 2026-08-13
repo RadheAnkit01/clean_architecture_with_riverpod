@@ -1,11 +1,9 @@
+import 'package:clean_architecture_with_riverpod/core/model/country_code_model.dart';
+import 'package:clean_architecture_with_riverpod/core/model/gender_model.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'sign_up_request.freezed.dart';
 part 'sign_up_request.g.dart';
-
-enum Gender { male, female, other }
-
-enum Country { india, usa, uk, canada }
 
 @freezed
 abstract class SignUpRequest with _$SignUpRequest {
@@ -14,13 +12,15 @@ abstract class SignUpRequest with _$SignUpRequest {
 
     @JsonKey(name: 'lastName') String? lastName,
 
-    @JsonKey(name: 'countryCode') required String countryCode,
+    @CountryCodeConverter()
+    @JsonKey(name: 'countryCode')
+    required CountryCode countryCode,
 
     @JsonKey(name: 'phoneNumber') required String phoneNumber,
 
     @JsonKey(name: 'email') String? email,
 
-    @JsonKey(name: 'gender') required Gender gender,
+    @GenderConverter() @JsonKey(name: 'gender') required Gender gender,
 
     @JsonKey(name: 'password') required String password,
 
