@@ -1,3 +1,4 @@
+import 'package:clean_architecture_with_riverpod/common/exception/failure.dart';
 import 'package:clean_architecture_with_riverpod/features/signup/application/isign_up_service.dart';
 import 'package:clean_architecture_with_riverpod/features/signup/data/dto/request/sign_up_request.dart';
 import 'package:clean_architecture_with_riverpod/features/signup/data/dto/response/sign_up_response.dart';
@@ -6,6 +7,7 @@ import 'package:clean_architecture_with_riverpod/features/signup/data/repository
 import 'package:clean_architecture_with_riverpod/features/signup/domain/mapper/isign_up_model_mapper.dart';
 import 'package:clean_architecture_with_riverpod/features/signup/domain/model/sign_up_model.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:multiple_result/multiple_result.dart';
 
 final signUpServiceProvider = Provider<IsignUpService>((ref) {
   final signUpRepository = ref.watch(signUpRepositoryProvider);
@@ -18,13 +20,21 @@ final class SignUpService implements IsignUpService, IsignUpModelMapper {
   SignUpService({required this._signUpRepository});
 
   @override
-  Future<SignUpModel> signUp(SignUpRequest data) async {
+  Future<Result<SignUpModel, Failure>> signUp(SignUpRequest data) async {
     try {
       final response = await _signUpRepository.signUp(data);
       final model = mapToSignUpModel(response);
-      return model;
+      return Success(model);
+    } on Failure catch (failure) {
+      return Error(failure);
     } catch (e) {
-      rethrow;
+      return Error(
+        Failure(
+          message: "An unexpected error occurred. Please try again later.",
+          statusCode: 500,
+          exception: e is Exception ? e : Exception(e.toString()),
+        ),
+      );
     }
   }
 

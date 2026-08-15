@@ -27,7 +27,10 @@ mixin DioExceptionMapper {
         );
       case DioExceptionType.badResponse:
         return Failure(
-          message: _getErrorMessageForStatusCode(e.response?.statusCode),
+          // message: _getErrorMessageForStatusCode(e.response?.statusCode),
+          message:
+              e.response?.data['message'] ??
+              "An unexpected error occurred. Please try again later.",
           statusCode: e.response?.statusCode,
           exception: e,
           stackTrace: stackTrace,
@@ -70,28 +73,28 @@ mixin DioExceptionMapper {
     }
   }
 
-  String _getErrorMessageForStatusCode(int? statusCode) {
-    switch (statusCode) {
-      case 400:
-        return "Bad request. Please check your input.";
-      case 401:
-        return "Unauthorized. Please check your credentials.";
-      case 403:
-        return "Forbidden. You don't have permission to access this resource.";
-      case 404:
-        return "Not found. The requested resource could not be found.";
-      case 498:
-        return "Invalid token. Please log in again.";
-      case 500:
-        return "Internal server error. Please try again later.";
-      case 502:
-        return "Bad gateway. Please try again later.";
-      case 503:
-        return "Service unavailable. Please try again later.";
-      case 504:
-        return "Gateway timeout. Please try again later.";
-      default:
-        return "An unexpected error occurred. Please try again later.";
-    }
-  }
+  // String _getErrorMessageForStatusCode(int? statusCode) {
+  //   switch (statusCode) {
+  //     case 400:
+  //       return "Bad request. Please check your input.";
+  //     case 401:
+  //       return "Unauthorized. Please check your credentials.";
+  //     case 403:
+  //       return "Forbidden. You don't have permission to access this resource.";
+  //     case 404:
+  //       return "Not found. The requested resource could not be found.";
+  //     case 498:
+  //       return "Invalid token. Please log in again.";
+  //     case 500:
+  //       return "Internal server error. Please try again later.";
+  //     case 502:
+  //       return "Bad gateway. Please try again later.";
+  //     case 503:
+  //       return "Service unavailable. Please try again later.";
+  //     case 504:
+  //       return "Gateway timeout. Please try again later.";
+  //     default:
+  //       return "An unexpected error occurred. Please try again later.";
+  //   }
+  // }
 }

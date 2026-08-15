@@ -18,24 +18,48 @@ class SignUpController extends Notifier<SignUpState> {
 
   Future<void> signUp() async {
     try {
-      state.copyWith(isLoading: true, error: null, isSignUpSuccess: null);
+      // Update the state to indicate that the sign-up process has started
+      state = state.copyWith(
+        isLoading: true,
+        error: null,
+        isSignUpSuccess: null,
+      );
+      // Create a SignUpRequest object using the form data from the state
       final formData = SignUpRequest(
         firstName: state.signUpForm["firstName"],
+        lastName: state.signUpForm["lastName"],
+        email: state.signUpForm["email"],
         countryCode: state.signUpForm["countryCode"],
         phoneNumber: state.signUpForm["phoneNumber"],
         gender: state.signUpForm["gender"],
         password: state.signUpForm["password"],
         acceptTerms: state.signUpForm["acceptTerms"],
       );
+      // Call the signUp method from the SignUpService and handle the result
       final result = await ref.read(signUpServiceProvider).signUp(formData);
-      if (!ref.mounted) return;
-      state = state.copyWith(
-        isLoading: false,
-        isSignUpSuccess: result.isSignUpSuccess,
-        signUpModel: result,
+
+      result.when(
+        (success) {
+          // if (!ref.mounted) return;
+          state = state.copyWith(
+            isLoading: false,
+            isSignUpSuccess: success.isSignUpSuccess,
+            signUpModel: success,
+          );
+        },
+        (failure) {
+          // if (!ref.mounted) return;
+          state = state.copyWith(
+            isLoading: false,
+            isSignUpSuccess: null,
+            error: failure.message,
+          );
+        },
       );
+
+      // if (!ref.mounted) return;
     } catch (e) {
-      if (!ref.mounted) return;
+      // if (!ref.mounted) return;
       state = state.copyWith(
         isLoading: false,
         isSignUpSuccess: null,

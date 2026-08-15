@@ -101,9 +101,7 @@ class _SignUpScreenState extends ConsumerState<SignUpScreen> {
           SnackBar(
             duration: const Duration(seconds: 3),
             backgroundColor: Colors.red,
-            content: Text(
-              "Something is wrong! Please try again later. Error: $next",
-            ),
+            content: Text("Error: $next"),
           ),
         );
       }
