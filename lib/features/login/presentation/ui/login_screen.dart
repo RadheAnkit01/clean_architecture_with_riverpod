@@ -1,31 +1,30 @@
+import 'package:clean_architecture_with_riverpod/features/login/presentation/ui/widgets/login_form.dart';
+import 'package:clean_architecture_with_riverpod/features/login/presentation/ui/widgets/login_header.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:go_router/go_router.dart';
 
-class LoginScreen extends ConsumerStatefulWidget {
+class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
 
   @override
-  ConsumerState<LoginScreen> createState() => _LoginScreenState();
-}
-
-class _LoginScreenState extends ConsumerState<LoginScreen> {
-  @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("Login")),
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
-            Text("Login Screen"),
-            IconButton.filled(
-              onPressed: () {
-                // context.go("/signup");
-                context.go("/signup");
-              },
-              icon: Icon(Icons.login_sharp),
-            ),
-          ],
+      body: SafeArea(
+        child: SingleChildScrollView(
+          padding: const EdgeInsets.symmetric(horizontal: 24),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const SizedBox(height: 70),
+
+              const LoginHeader(),
+
+              const SizedBox(height: 45),
+
+              const LoginForm(),
+
+              const SizedBox(height: 30),
+            ],
+          ),
         ),
       ),
     );

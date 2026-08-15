@@ -3,6 +3,7 @@ import 'package:clean_architecture_with_riverpod/core/data/remote/endpoint.dart'
 import 'package:clean_architecture_with_riverpod/core/data/remote/token/itoken_service.dart';
 import 'package:clean_architecture_with_riverpod/core/data/remote/token/token_service.dart';
 import 'package:dio/dio.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 final networkServiceInterceptorProvider = Provider.autoDispose
@@ -22,7 +23,7 @@ final class NetworkServiceInterceptor extends Interceptor {
     RequestInterceptorHandler handler,
   ) async {
     final accessToken = await _itokenService.getAccessToken();
-
+    debugPrint("Access Token: $accessToken");
     options.headers['Content-Type'] = 'application/json';
     options.headers['Accept'] = 'application/json';
     if (accessToken != null) {

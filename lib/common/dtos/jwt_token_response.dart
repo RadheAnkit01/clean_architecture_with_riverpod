@@ -9,6 +9,7 @@ abstract class JwtTokenResponse with _$JwtTokenResponse {
     @JsonKey(name: "accessToken") required String accessToken,
     @JsonKey(name: "refreshToken") required String refreshToken,
     @JsonKey(name: "phoneNumber") required String phoneNumber,
+    @JsonKey(name: "firstName") required String firstName,
   }) = _JwtTokenResponse;
 
   factory JwtTokenResponse.fromJson(Map<String, dynamic> json) =>

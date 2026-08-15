@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$JwtTokenResponse {
 
-@JsonKey(name: "accessToken") String get accessToken;@JsonKey(name: "refreshToken") String get refreshToken;@JsonKey(name: "phoneNumber") String get phoneNumber;
+@JsonKey(name: "accessToken") String get accessToken;@JsonKey(name: "refreshToken") String get refreshToken;@JsonKey(name: "phoneNumber") String get phoneNumber;@JsonKey(name: "firstName") String get firstName;
 /// Create a copy of JwtTokenResponse
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -28,16 +28,16 @@ $JwtTokenResponseCopyWith<JwtTokenResponse> get copyWith => _$JwtTokenResponseCo
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is JwtTokenResponse&&(identical(other.accessToken, accessToken) || other.accessToken == accessToken)&&(identical(other.refreshToken, refreshToken) || other.refreshToken == refreshToken)&&(identical(other.phoneNumber, phoneNumber) || other.phoneNumber == phoneNumber));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is JwtTokenResponse&&(identical(other.accessToken, accessToken) || other.accessToken == accessToken)&&(identical(other.refreshToken, refreshToken) || other.refreshToken == refreshToken)&&(identical(other.phoneNumber, phoneNumber) || other.phoneNumber == phoneNumber)&&(identical(other.firstName, firstName) || other.firstName == firstName));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,accessToken,refreshToken,phoneNumber);
+int get hashCode => Object.hash(runtimeType,accessToken,refreshToken,phoneNumber,firstName);
 
 @override
 String toString() {
-  return 'JwtTokenResponse(accessToken: $accessToken, refreshToken: $refreshToken, phoneNumber: $phoneNumber)';
+  return 'JwtTokenResponse(accessToken: $accessToken, refreshToken: $refreshToken, phoneNumber: $phoneNumber, firstName: $firstName)';
 }
 
 
@@ -48,7 +48,7 @@ abstract mixin class $JwtTokenResponseCopyWith<$Res>  {
   factory $JwtTokenResponseCopyWith(JwtTokenResponse value, $Res Function(JwtTokenResponse) _then) = _$JwtTokenResponseCopyWithImpl;
 @useResult
 $Res call({
-@JsonKey(name: "accessToken") String accessToken,@JsonKey(name: "refreshToken") String refreshToken,@JsonKey(name: "phoneNumber") String phoneNumber
+@JsonKey(name: "accessToken") String accessToken,@JsonKey(name: "refreshToken") String refreshToken,@JsonKey(name: "phoneNumber") String phoneNumber,@JsonKey(name: "firstName") String firstName
 });
 
 
@@ -65,11 +65,12 @@ class _$JwtTokenResponseCopyWithImpl<$Res>
 
 /// Create a copy of JwtTokenResponse
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? accessToken = null,Object? refreshToken = null,Object? phoneNumber = null,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? accessToken = null,Object? refreshToken = null,Object? phoneNumber = null,Object? firstName = null,}) {
   return _then(_self.copyWith(
 accessToken: null == accessToken ? _self.accessToken : accessToken // ignore: cast_nullable_to_non_nullable
 as String,refreshToken: null == refreshToken ? _self.refreshToken : refreshToken // ignore: cast_nullable_to_non_nullable
 as String,phoneNumber: null == phoneNumber ? _self.phoneNumber : phoneNumber // ignore: cast_nullable_to_non_nullable
+as String,firstName: null == firstName ? _self.firstName : firstName // ignore: cast_nullable_to_non_nullable
 as String,
   ));
 }
@@ -155,10 +156,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function(@JsonKey(name: "accessToken")  String accessToken, @JsonKey(name: "refreshToken")  String refreshToken, @JsonKey(name: "phoneNumber")  String phoneNumber)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function(@JsonKey(name: "accessToken")  String accessToken, @JsonKey(name: "refreshToken")  String refreshToken, @JsonKey(name: "phoneNumber")  String phoneNumber, @JsonKey(name: "firstName")  String firstName)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _JwtTokenResponse() when $default != null:
-return $default(_that.accessToken,_that.refreshToken,_that.phoneNumber);case _:
+return $default(_that.accessToken,_that.refreshToken,_that.phoneNumber,_that.firstName);case _:
   return orElse();
 
 }
@@ -176,10 +177,10 @@ return $default(_that.accessToken,_that.refreshToken,_that.phoneNumber);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function(@JsonKey(name: "accessToken")  String accessToken, @JsonKey(name: "refreshToken")  String refreshToken, @JsonKey(name: "phoneNumber")  String phoneNumber)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function(@JsonKey(name: "accessToken")  String accessToken, @JsonKey(name: "refreshToken")  String refreshToken, @JsonKey(name: "phoneNumber")  String phoneNumber, @JsonKey(name: "firstName")  String firstName)  $default,) {final _that = this;
 switch (_that) {
 case _JwtTokenResponse():
-return $default(_that.accessToken,_that.refreshToken,_that.phoneNumber);case _:
+return $default(_that.accessToken,_that.refreshToken,_that.phoneNumber,_that.firstName);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -196,10 +197,10 @@ return $default(_that.accessToken,_that.refreshToken,_that.phoneNumber);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function(@JsonKey(name: "accessToken")  String accessToken, @JsonKey(name: "refreshToken")  String refreshToken, @JsonKey(name: "phoneNumber")  String phoneNumber)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function(@JsonKey(name: "accessToken")  String accessToken, @JsonKey(name: "refreshToken")  String refreshToken, @JsonKey(name: "phoneNumber")  String phoneNumber, @JsonKey(name: "firstName")  String firstName)?  $default,) {final _that = this;
 switch (_that) {
 case _JwtTokenResponse() when $default != null:
-return $default(_that.accessToken,_that.refreshToken,_that.phoneNumber);case _:
+return $default(_that.accessToken,_that.refreshToken,_that.phoneNumber,_that.firstName);case _:
   return null;
 
 }
@@ -211,12 +212,13 @@ return $default(_that.accessToken,_that.refreshToken,_that.phoneNumber);case _:
 @JsonSerializable()
 
 class _JwtTokenResponse implements JwtTokenResponse {
-  const _JwtTokenResponse({@JsonKey(name: "accessToken") required this.accessToken, @JsonKey(name: "refreshToken") required this.refreshToken, @JsonKey(name: "phoneNumber") required this.phoneNumber});
+  const _JwtTokenResponse({@JsonKey(name: "accessToken") required this.accessToken, @JsonKey(name: "refreshToken") required this.refreshToken, @JsonKey(name: "phoneNumber") required this.phoneNumber, @JsonKey(name: "firstName") required this.firstName});
   factory _JwtTokenResponse.fromJson(Map<String, dynamic> json) => _$JwtTokenResponseFromJson(json);
 
 @override@JsonKey(name: "accessToken") final  String accessToken;
 @override@JsonKey(name: "refreshToken") final  String refreshToken;
 @override@JsonKey(name: "phoneNumber") final  String phoneNumber;
+@override@JsonKey(name: "firstName") final  String firstName;
 
 /// Create a copy of JwtTokenResponse
 /// with the given fields replaced by the non-null parameter values.
@@ -231,16 +233,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _JwtTokenResponse&&(identical(other.accessToken, accessToken) || other.accessToken == accessToken)&&(identical(other.refreshToken, refreshToken) || other.refreshToken == refreshToken)&&(identical(other.phoneNumber, phoneNumber) || other.phoneNumber == phoneNumber));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _JwtTokenResponse&&(identical(other.accessToken, accessToken) || other.accessToken == accessToken)&&(identical(other.refreshToken, refreshToken) || other.refreshToken == refreshToken)&&(identical(other.phoneNumber, phoneNumber) || other.phoneNumber == phoneNumber)&&(identical(other.firstName, firstName) || other.firstName == firstName));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,accessToken,refreshToken,phoneNumber);
+int get hashCode => Object.hash(runtimeType,accessToken,refreshToken,phoneNumber,firstName);
 
 @override
 String toString() {
-  return 'JwtTokenResponse(accessToken: $accessToken, refreshToken: $refreshToken, phoneNumber: $phoneNumber)';
+  return 'JwtTokenResponse(accessToken: $accessToken, refreshToken: $refreshToken, phoneNumber: $phoneNumber, firstName: $firstName)';
 }
 
 
@@ -251,7 +253,7 @@ abstract mixin class _$JwtTokenResponseCopyWith<$Res> implements $JwtTokenRespon
   factory _$JwtTokenResponseCopyWith(_JwtTokenResponse value, $Res Function(_JwtTokenResponse) _then) = __$JwtTokenResponseCopyWithImpl;
 @override @useResult
 $Res call({
-@JsonKey(name: "accessToken") String accessToken,@JsonKey(name: "refreshToken") String refreshToken,@JsonKey(name: "phoneNumber") String phoneNumber
+@JsonKey(name: "accessToken") String accessToken,@JsonKey(name: "refreshToken") String refreshToken,@JsonKey(name: "phoneNumber") String phoneNumber,@JsonKey(name: "firstName") String firstName
 });
 
 
@@ -268,11 +270,12 @@ class __$JwtTokenResponseCopyWithImpl<$Res>
 
 /// Create a copy of JwtTokenResponse
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? accessToken = null,Object? refreshToken = null,Object? phoneNumber = null,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? accessToken = null,Object? refreshToken = null,Object? phoneNumber = null,Object? firstName = null,}) {
   return _then(_JwtTokenResponse(
 accessToken: null == accessToken ? _self.accessToken : accessToken // ignore: cast_nullable_to_non_nullable
 as String,refreshToken: null == refreshToken ? _self.refreshToken : refreshToken // ignore: cast_nullable_to_non_nullable
 as String,phoneNumber: null == phoneNumber ? _self.phoneNumber : phoneNumber // ignore: cast_nullable_to_non_nullable
+as String,firstName: null == firstName ? _self.firstName : firstName // ignore: cast_nullable_to_non_nullable
 as String,
   ));
 }

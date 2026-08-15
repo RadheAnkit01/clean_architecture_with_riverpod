@@ -11,6 +11,7 @@ _JwtTokenResponse _$JwtTokenResponseFromJson(Map<String, dynamic> json) =>
       accessToken: json['accessToken'] as String,
       refreshToken: json['refreshToken'] as String,
       phoneNumber: json['phoneNumber'] as String,
+      firstName: json['firstName'] as String,
     );
 
 Map<String, dynamic> _$JwtTokenResponseToJson(_JwtTokenResponse instance) =>
@@ -18,4 +19,5 @@ Map<String, dynamic> _$JwtTokenResponseToJson(_JwtTokenResponse instance) =>
       'accessToken': instance.accessToken,
       'refreshToken': instance.refreshToken,
       'phoneNumber': instance.phoneNumber,
+      'firstName': instance.firstName,
     };

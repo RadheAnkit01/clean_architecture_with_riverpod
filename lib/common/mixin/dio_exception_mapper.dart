@@ -51,7 +51,7 @@ mixin DioExceptionMapper {
         );
       case DioExceptionType.connectionError:
         return Failure(
-          message: "Connection error. Please check your internet connection.",
+          message: "Unable to connect to the server. Please try again later.",
           statusCode: 503,
           exception: e,
           stackTrace: stackTrace,

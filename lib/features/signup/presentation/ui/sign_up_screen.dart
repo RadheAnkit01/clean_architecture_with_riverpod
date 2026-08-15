@@ -206,7 +206,7 @@ class _SignUpScreenState extends ConsumerState<SignUpScreen> {
                       onLoginPressed: () {
                         // Navigate to login.
                         //
-                        // context.push('/login');
+                        context.go('/login');
                       },
                     ),
                   ],
