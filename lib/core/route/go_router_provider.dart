@@ -1,7 +1,7 @@
 import 'package:clean_architecture_with_riverpod/core/route/route_name.dart';
-import 'package:clean_architecture_with_riverpod/features/login/presentation/ui/login_screen.dart';
+import 'package:clean_architecture_with_riverpod/features/auth/login/presentation/ui/login_screen.dart';
 // import 'package:clean_architecture_with_riverpod/features/signup/presentation/ui/signup_screen.dart';
-import 'package:clean_architecture_with_riverpod/features/signup/presentation/ui/sign_up_screen.dart';
+import 'package:clean_architecture_with_riverpod/features/auth/signup/presentation/ui/sign_up_screen.dart';
 import 'package:clean_architecture_with_riverpod/home_screen.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
